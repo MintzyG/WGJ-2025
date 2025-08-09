@@ -1,6 +1,5 @@
 extends CharacterBody2D
-
-class_name PlatformerController2D
+class_name Player
 
 @export var README: String = "IMPORTANT: MAKE SURE TO ASSIGN 'left' 'right' 'jump' 'dash' 'up' 'down' in the project settings input map. Usage tips. 1. Hover over each toggle and variable to read what it does and to make sure nothing bugs. 2. Animations are very primitive. To make full use of your custom art, you may want to slightly change the code for the animations"
 #INFO READEME 
@@ -250,6 +249,9 @@ func _updateData():
 	
 
 func _process(_delta):
+	if stop:
+		anim.stop()
+		return
 	#INFO animations
 	#directions
 	if is_on_wall() and !is_on_floor() and latch and wallLatching and ((wallLatchingModifer and latchHold) or !wallLatchingModifer):
@@ -268,7 +270,7 @@ func _process(_delta):
 	if run and idle and !dashing and !crouching:
 		if abs(velocity.x) > 0.1 and is_on_floor() and !is_on_wall():
 			anim.speed_scale = abs(velocity.x / 150)
-			anim.play("run")
+			anim.play("walk")
 		elif abs(velocity.x) < 0.1 and is_on_floor():
 			anim.speed_scale = 1
 			anim.play("idle")
@@ -278,7 +280,7 @@ func _process(_delta):
 			if abs(velocity.x) < (maxSpeedLock):
 				anim.play("walk")
 			else:
-				anim.play("run")
+				anim.play("walk")
 		elif abs(velocity.x) < 0.1 and is_on_floor():
 			anim.speed_scale = 1
 			anim.play("idle")
@@ -320,9 +322,13 @@ func _process(_delta):
 			anim.play("roll")
 		
 		
-		
+@export_category("Stop")
+@export var stop = false
 
 func _physics_process(delta):
+	if stop:
+		return
+	
 	if !dset:
 		gdelta = delta
 		dset = true
@@ -663,3 +669,6 @@ func _endGroundPound():
 
 func _placeHolder():
 	print("")
+
+func change_score_label():
+	%ScoreLabel.text = "Score: " + str(Stats.player_score)

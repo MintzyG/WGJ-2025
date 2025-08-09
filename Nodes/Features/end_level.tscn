@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsw51rjm56a8"]
+
+[ext_resource type="Texture2D" uid="uid://cpnonbc60w4vp" path="res://Assets/bn.png" id="1_1x2ck"]
+[ext_resource type="Script" uid="uid://k71l6at685ql" path="res://Scripts/end_level.gd" id="1_wd7eu"]
+[ext_resource type="AudioStream" uid="uid://c8jcqtf2yw5bw" path="res://SFX/8-bit-logo-291104.mp3" id="3_u4anj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wd7eu"]
+radius = 101.124
+
+[node name="EndLevel" type="Area2D"]
+script = ExtResource("1_wd7eu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1x2ck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wd7eu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_u4anj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

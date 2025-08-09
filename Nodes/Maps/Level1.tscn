@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://cg4pelx7lutjv"]
+
+[ext_resource type="Texture2D" uid="uid://c34jlsv7in5xd" path="res://icon.svg" id="1_g166v"]
+[ext_resource type="PackedScene" uid="uid://cqobqvp74imy1" path="res://Nodes/Features/player.tscn" id="2_b77uv"]
+[ext_resource type="PackedScene" uid="uid://dqphv3sgd20an" path="res://Nodes/Features/Collectible.tscn" id="3_jpfq3"]
+[ext_resource type="PackedScene" uid="uid://bsw51rjm56a8" path="res://Nodes/Features/end_level.tscn" id="4_4ouqv"]
+[ext_resource type="PackedScene" uid="uid://bb580o0pb7r5i" path="res://Nodes/Maps/MapaTeste.tscn" id="5_rrvsu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kc3qt"]
+size = Vector2(128.33, 125)
+
+[node name="Level1" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-30, 10)
+scale = Vector2(9.76, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("1_g166v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.0512301, 1.5)
+scale = Vector2(0.997207, 1)
+shape = SubResource("RectangleShape2D_kc3qt")
+
+[node name="Player" parent="." instance=ExtResource("2_b77uv")]
+position = Vector2(-515, -134)
+
+[node name="Collectible" parent="." instance=ExtResource("3_jpfq3")]
+position = Vector2(-232, -95)
+
+[node name="Collectible2" parent="." instance=ExtResource("3_jpfq3")]
+position = Vector2(-157, -98)
+
+[node name="Collectible3" parent="." instance=ExtResource("3_jpfq3")]
+position = Vector2(-79, -183)
+
+[node name="Collectible4" parent="." instance=ExtResource("3_jpfq3")]
+position = Vector2(9, -181)
+
+[node name="Collectible5" parent="." instance=ExtResource("3_jpfq3")]
+position = Vector2(79, -94)
+
+[node name="EndLevel" parent="." instance=ExtResource("4_4ouqv")]
+position = Vector2(536, -113)
+scale = Vector2(0.318785, 0.318785)
+next_level = ExtResource("5_rrvsu")
+
+[node name="Collectible6" parent="." instance=ExtResource("3_jpfq3")]
+position = Vector2(-31, -55)
+is_star = false

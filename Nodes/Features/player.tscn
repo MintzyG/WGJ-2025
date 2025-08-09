@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqobqvp74imy1"]
+
+[ext_resource type="Script" uid="uid://35t11mjoxq7d" path="res://Addons/Ultimate-Platformer-Controller-2D-7d373d80eddabdd85576d4b4deac9ecb473dc63e/UltimatePlatformerController.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://udfgbp0otqoe" path="res://Assets/g1.png" id="2_xbbv0"]
+[ext_resource type="Texture2D" uid="uid://c4knkjt47or71" path="res://Assets/g2.png" id="3_8hlry"]
+[ext_resource type="Texture2D" uid="uid://d2gvr82om5wcp" path="res://Assets/g3.png" id="4_kljbf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hqtel"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xbbv0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xbbv0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8hlry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kljbf")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sweqy"]
+radius = 36.0
+height = 72.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("PlayerSprite", "PlayerCollider")]
+script = ExtResource("1_onrkg")
+PlayerSprite = NodePath("AnimatedSprite2D")
+PlayerCollider = NodePath("CollisionShape2D")
+timeToReachZeroSpeed = 0.0
+directionalSnap = true
+run = true
+idle = true
+walk = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-3, -4)
+scale = Vector2(0.347656, 0.347656)
+sprite_frames = SubResource("SpriteFrames_hqtel")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 7)
+shape = SubResource("CapsuleShape2D_sweqy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -6.0
+offset_right = 2.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/Control/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "score: "
