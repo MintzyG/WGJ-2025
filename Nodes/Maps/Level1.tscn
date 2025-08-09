@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dqphv3sgd20an" path="res://Nodes/Features/Collectible.tscn" id="3_jpfq3"]
 [ext_resource type="PackedScene" uid="uid://bsw51rjm56a8" path="res://Nodes/Features/end_level.tscn" id="4_4ouqv"]
 [ext_resource type="PackedScene" uid="uid://bb580o0pb7r5i" path="res://Nodes/Maps/MapaTeste.tscn" id="5_rrvsu"]
-[ext_resource type="PackedScene" uid="uid://dxvwno1mh2k4l" path="res://Nodes/Features/enemy.tscn" id="6_rrvsu"]
+[ext_resource type="PackedScene" uid="uid://dfeq57dg40gyi" path="res://Nodes/Features/enemy.tscn" id="6_rrvsu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kc3qt"]
 size = Vector2(128.33, 125)
