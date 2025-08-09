@@ -63,6 +63,7 @@ PlayerSprite = NodePath("AnimatedSprite2D")
 PlayerCollider = NodePath("CollisionShape2D")
 timeToReachZeroSpeed = 0.0
 directionalSnap = true
+jumpHeight = 3.0
 run = true
 jump = true
 idle = true
@@ -74,7 +75,7 @@ position = Vector2(-3, -4)
 scale = Vector2(0.347656, 0.347656)
 sprite_frames = SubResource("SpriteFrames_hqtel")
 animation = &"damage"
-frame_progress = 0.362273
+frame_progress = 0.246051
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 7)

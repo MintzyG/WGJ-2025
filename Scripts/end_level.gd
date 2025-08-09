@@ -1,4 +1,5 @@
 extends Area2D
+class_name EndLevel
 
 @export var next_level: PackedScene
 @export var pattern_enter: String = "curtains"
