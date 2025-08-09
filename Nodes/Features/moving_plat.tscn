@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfouptxw1x0hh"]
+
+[ext_resource type="Script" uid="uid://cbo0elfpvn0wh" path="res://Scripts/moving_plat.gd" id="1_bxqat"]
+[ext_resource type="Texture2D" uid="uid://c34jlsv7in5xd" path="res://icon.svg" id="1_llfbm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxqat"]
+size = Vector2(128, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4va21"]
+size = Vector2(127, 87)
+
+[node name="MovingPlat" type="StaticBody2D"]
+script = ExtResource("1_bxqat")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_llfbm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_bxqat")
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(-0.5, -33.5)
+shape = SubResource("RectangleShape2D_4va21")

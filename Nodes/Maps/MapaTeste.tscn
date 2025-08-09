@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb580o0pb7r5i"]
+[gd_scene load_steps=6 format=3 uid="uid://bb580o0pb7r5i"]
 
 [ext_resource type="Texture2D" uid="uid://c34jlsv7in5xd" path="res://icon.svg" id="1_7tcw2"]
 [ext_resource type="PackedScene" uid="uid://cqobqvp74imy1" path="res://Nodes/Features/player.tscn" id="2_aeowy"]
 [ext_resource type="PackedScene" uid="uid://dqphv3sgd20an" path="res://Nodes/Features/Collectible.tscn" id="3_aeowy"]
+[ext_resource type="PackedScene" uid="uid://bfouptxw1x0hh" path="res://Nodes/Features/moving_plat.tscn" id="4_n5ke6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5ke6"]
 size = Vector2(128, 127)
@@ -22,9 +23,25 @@ texture = ExtResource("1_7tcw2")
 position = Vector2(-5, 102.5)
 shape = SubResource("RectangleShape2D_n5ke6")
 
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(497, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(-5, 103)
+texture = ExtResource("1_7tcw2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-5, 102.5)
+shape = SubResource("RectangleShape2D_n5ke6")
+
 [node name="Collectible" parent="." instance=ExtResource("3_aeowy")]
 position = Vector2(107, -41)
 
 [node name="Collectible2" parent="." instance=ExtResource("3_aeowy")]
 position = Vector2(-118, -41)
 amount = 4
+
+[node name="MovingPlat" parent="." instance=ExtResource("4_n5ke6")]
+position = Vector2(350.435, 103.29)
+point_a = Vector2(150, 100)
+point_b = Vector2(350, 100)
