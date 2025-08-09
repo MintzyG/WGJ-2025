@@ -112,6 +112,7 @@ class_name Player
 @export var crouch_walk: bool
 ##Animations must be named "roll" all lowercase as the check box says
 @export var roll: bool
+@export var damage: bool
 
 
 
@@ -246,12 +247,11 @@ func _updateData():
 	elif dashType == 4:
 		eightWayDash = true
 	
-	
-
 func _process(_delta):
 	if stop:
 		anim.stop()
 		return
+		
 	#INFO animations
 	#directions
 	if is_on_wall() and !is_on_floor() and latch and wallLatching and ((wallLatchingModifer and latchHold) or !wallLatchingModifer):
@@ -672,3 +672,34 @@ func _placeHolder():
 
 func change_score_label():
 	%ScoreLabel.text = "Score: " + str(Stats.player_score)
+
+func change_health_label():
+	%HealthLabel.text = "Health: " + str(health)
+
+@export var health: int = 5
+
+func take_damage(damage):
+	health -= damage
+	change_health_label()
+	if health <= 0:
+		die()
+	else:
+		%HurtSound.play()
+		anim.stop()
+		anim.frame = 0  # reset to first frame
+		anim.play("damage")
+
+		
+func die() -> void:
+	%DeathSound.play()
+	await get_tree().create_timer(1.0).timeout
+	if !SceneManager.is_transitioning:
+		var current_scene_path = get_tree().current_scene.scene_file_path
+		var current_scene: PackedScene = load(current_scene_path)
+		SceneManager.change_scene(
+			current_scene,
+			{
+				"pattern_enter": "curtains",
+				"pattern_leave": "circle",
+			}
+		)

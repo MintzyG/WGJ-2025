@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://j20v4cg7v8m1"]
 
-[ext_resource type="Script" uid="uid://bwsgs8s5m8pbv" path="res://addons/scene_manager/SceneManager.gd" id="1_22br8"]
-[ext_resource type="Shader" uid="uid://cy63rlg50h2yx" path="res://addons/scene_manager/Dissolve2d.gdshader" id="2_853wq"]
+[ext_resource type="Script" uid="uid://bwsgs8s5m8pbv" path="res://Addons/scene_manager/SceneManager.gd" id="1_22br8"]
+[ext_resource type="Shader" uid="uid://cy63rlg50h2yx" path="res://Addons/scene_manager/Dissolve2d.gdshader" id="2_853wq"]
 [ext_resource type="Animation" uid="uid://dxr1r78uxitcq" path="res://Addons/scene_manager/ShaderFade.tres" id="5_anecj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0imdi"]
