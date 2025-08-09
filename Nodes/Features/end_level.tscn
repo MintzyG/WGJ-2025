@@ -42,6 +42,6 @@ stream = ExtResource("2_117gx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_h3x32")
 autoplay = "default"
-frame_progress = 0.127698
+frame_progress = 0.809638
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

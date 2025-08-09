@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfouptxw1x0hh"]
+[gd_scene load_steps=7 format=3 uid="uid://bfouptxw1x0hh"]
 
 [ext_resource type="Script" uid="uid://cbo0elfpvn0wh" path="res://Scripts/moving_plat.gd" id="1_bxqat"]
-[ext_resource type="Texture2D" uid="uid://c34jlsv7in5xd" path="res://icon.svg" id="1_llfbm"]
+[ext_resource type="Texture2D" uid="uid://dtsfq7d41f0r1" path="res://Assets/block1.png" id="2_1w13f"]
+[ext_resource type="Texture2D" uid="uid://bqf3uwwe0ni5o" path="res://Assets/block2.png" id="3_r8lc7"]
+[ext_resource type="Texture2D" uid="uid://closyaxekb26j" path="res://Assets/block 3.png" id="4_b6i4v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bxqat"]
 size = Vector2(128, 129)
@@ -9,11 +11,14 @@ size = Vector2(128, 129)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4va21"]
 size = Vector2(127, 87)
 
-[node name="MovingPlat" type="StaticBody2D"]
+[node name="MovingPlat" type="StaticBody2D" node_paths=PackedStringArray("variation1", "variation2", "variation3")]
 script = ExtResource("1_bxqat")
+variation1 = NodePath("Sprite2D")
+variation2 = NodePath("Sprite2D2")
+variation3 = NodePath("Sprite2D3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_llfbm")
+texture = ExtResource("2_1w13f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
@@ -25,3 +30,9 @@ unique_name_in_owner = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 position = Vector2(-0.5, -33.5)
 shape = SubResource("RectangleShape2D_4va21")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = ExtResource("3_r8lc7")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+texture = ExtResource("4_b6i4v")
