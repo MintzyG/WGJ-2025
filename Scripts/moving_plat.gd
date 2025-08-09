@@ -3,6 +3,10 @@ extends Node2D  # or StaticBody2D if you want physics collisions
 @export var point_a: Vector2
 @export var point_b: Vector2
 @export var speed: float = 100.0
+@export var variation1 : Sprite2D
+@export var variation2 : Sprite2D
+@export var variation3 : Sprite2D
+
 
 var target_position: Vector2
 var direction: int = 1  # 1 = going to B, -1 = going to A
@@ -10,6 +14,20 @@ var last_position: Vector2
 var players_on_platform = []
 
 func _ready():
+	var random = randi() % 3
+	if random == 1:
+		variation1.visible = true
+		variation2.visible = false
+		variation3.visible = false
+	if random == 2:
+		variation2.visible = true
+		variation1.visible = false
+		variation3.visible = false
+	else:
+		variation3.visible = true
+		variation1.visible = false
+		variation2.visible = false
+		
 	%PlayerDetector.body_entered.connect(_on_body_entered)
 	%PlayerDetector.body_exited.connect(_on_body_exited)
 	position = point_a

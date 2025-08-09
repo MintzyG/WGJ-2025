@@ -1,13 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://d1s1n8w3xph8x"]
+[gd_scene load_steps=8 format=3 uid="uid://d1s1n8w3xph8x"]
 
 [ext_resource type="PackedScene" uid="uid://deo5qtpqbsiem" path="res://Nodes/Maps/Map.tscn" id="1_ws3up"]
-[ext_resource type="PackedScene" uid="uid://dxvwno1mh2k4l" path="res://Nodes/Features/enemy.tscn" id="2_shx3j"]
+[ext_resource type="PackedScene" uid="uid://dfeq57dg40gyi" path="res://Nodes/Features/enemy.tscn" id="2_shx3j"]
 [ext_resource type="PackedScene" uid="uid://cqobqvp74imy1" path="res://Nodes/Features/player.tscn" id="3_doa3i"]
 [ext_resource type="PackedScene" uid="uid://dqphv3sgd20an" path="res://Nodes/Features/Collectible.tscn" id="4_nceoc"]
 [ext_resource type="PackedScene" uid="uid://bsw51rjm56a8" path="res://Nodes/Features/end_level.tscn" id="5_eqro1"]
 [ext_resource type="PackedScene" uid="uid://cg4pelx7lutjv" path="res://Nodes/Maps/Level1.tscn" id="6_fvlmw"]
 [ext_resource type="PackedScene" uid="uid://bfouptxw1x0hh" path="res://Nodes/Features/moving_plat.tscn" id="7_shx3j"]
-[ext_resource type="PackedScene" uid="uid://lxi6cw86msyw" path="res://Nodes/Features/move_container.tscn" id="8_doa3i"]
 
 [node name="Mundo" type="Node2D"]
 
@@ -76,13 +75,3 @@ next_level = ExtResource("6_fvlmw")
 position = Vector2(363, 6)
 point_a = Vector2(363, 14)
 point_b = Vector2(-266, 14)
-
-[node name="MoveContainer" parent="." node_paths=PackedStringArray("thing") instance=ExtResource("8_doa3i")]
-position = Vector2(-257, 136)
-point_b = Vector2(25, 25)
-thing = NodePath("../EndLevel2")
-is_end = true
-
-[node name="EndLevel2" parent="." instance=ExtResource("5_eqro1")]
-position = Vector2(-370, 182)
-scale = Vector2(0.272334, 0.294263)

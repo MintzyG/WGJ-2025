@@ -4,6 +4,18 @@ extends CharacterBody2D
 @export var damage: int = 1
 @export var wall_check_distance: float = 4.0
 
+@export var variation1 : AnimatedSprite2D
+@export var variation2 : AnimatedSprite2D
+
+func _ready():
+	var random = randi() % 2
+	if random == 1:
+		variation1.visible = true
+		variation2.visible = false
+	else:
+		variation2.visible = true
+		variation1.visible = false
+		
 var direction: int = -1  # -1 = esquerda, 1 = direita
 
 func _physics_process(delta: float) -> void:
