@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=4 uid="uid://bwf13cb15g70s"]
+
+[ext_resource type="TileSet" uid="uid://bbluswapmm3ok" path="res://Nodes/Maps/Map.tres" id="1_5robg"]
+[ext_resource type="PackedScene" uid="uid://cqobqvp74imy1" path="res://Nodes/Features/player.tscn" id="2_e3ux0"]
+[ext_resource type="PackedScene" uid="uid://bsw51rjm56a8" path="res://Nodes/Features/end_level.tscn" id="3_el1lp"]
+[ext_resource type="PackedScene" uid="uid://cg4pelx7lutjv" path="res://Nodes/Maps/Level1.tscn" id="4_k8p08"]
+
+[node name="Teste" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(17, 71)
+scale = Vector2(8.50307, 8.50307)
+tile_map_data = PackedByteArray("AAAAAP//AAADAAQAAAAAAAAAAAAFAAEAAAAAAAEAAAADAAUAAAABAAEAAAAEAAUAAAABAAAAAAADAAAAAAACAAAAAAAEAAAAAAACAP//AAADAAIAAAACAP7/AAAEAAQAAAABAP7/AAADAAQAAAABAP//AAAFAAIAAAD9//3/AAAEAAQAAAD8//3/AAADAAQAAAD7//7/AAADAAQAAAD7////AAAFAAEAAAD8////AAACAAAAAAD8/wAAAAACAAAAAAD9/wAAAAACAAAAAAD9/wEAAAAEAAAAAAD8/wEAAAAEAAAAAAD7/wAAAAAFAAEAAAD8//7/AAAGAAEAAAD9//7/AAADAAEAAAD9////AAAHAAEAAAD+/wAAAAADAAEAAAD+////AAAEAAQAAAADAP//AAAEAAQAAAADAAAAAAAEAAUAAAD7/wEAAAADAAUAAAD+/wEAAAAEAAUAAAA=")
+tile_set = ExtResource("1_5robg")
+
+[node name="Player" parent="." instance=ExtResource("2_e3ux0")]
+position = Vector2(-72, -42)
+
+[node name="EndLevel" parent="." instance=ExtResource("3_el1lp")]
+position = Vector2(164, -106)
+scale = Vector2(0.286747, 0.286747)
+next_level = ExtResource("4_k8p08")

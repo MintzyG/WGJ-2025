@@ -33,6 +33,10 @@ folder_colors={
 "res://Scripts/": "green"
 }
 
+[gui]
+
+theme/custom_font="uid://culxigm11ghcg"
+
 [input]
 
 left={
